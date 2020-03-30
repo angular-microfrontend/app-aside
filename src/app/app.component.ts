@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Routes } from "@angular/router";
 
 @Component({
   templateUrl: "./app.component.html",
@@ -7,6 +8,10 @@ import { Component, OnInit } from "@angular/core";
 export class AppComponent implements OnInit {
   title = "app-aside";
   links = [];
+
+  getActiveClass(link) {
+    return window.location.pathname === link;
+  }
 
   ngOnInit() {
     if (window.localStorage && window.localStorage.getItem("links")) {
